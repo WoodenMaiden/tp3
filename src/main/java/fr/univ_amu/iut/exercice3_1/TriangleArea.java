@@ -1,6 +1,7 @@
 package fr.univ_amu.iut.exercice3_1;
 
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.NumberBinding;
 import javafx.beans.binding.StringExpression;
 import javafx.beans.property.IntegerProperty;
@@ -63,10 +64,23 @@ public class TriangleArea {
     }
 
     void printResult() {
-        throw new RuntimeException("Not yet implemented !");
+        System.out.println(output);
     }
 
     private void createBinding() {
-        throw new RuntimeException("Not yet implemented !");
+        NumberBinding x1y2 = Bindings.multiply(x1,y2);
+        NumberBinding x1y3 = Bindings.multiply(x1,y3);
+        NumberBinding x2y3 = Bindings.multiply(x2,y3);
+        NumberBinding x2y1 = Bindings.multiply(x2,y1);
+        NumberBinding x3y1 = Bindings.multiply(x3,y1);
+        NumberBinding x3y2 = Bindings.multiply(x3,y2);
+
+        NumberBinding formule = (Bindings.subtract(x1y2, x1y3).add(x2y3).subtract(x2y1).add(x3y1).subtract(x3y2));
+        NumberBinding absformule = Bindings.when(formule.lessThan(0)).then(formule.negate()).otherwise(formule);
+
+        area = absformule.divide(2.0);
+
+        output = Bindings.format("For P1(" + x1 + "," + y1 + "), P2(" +  x2 + "," + y2 + "), P3(" + x3 + "," + y3 + "), the area of triangle ABC is %d.1f", area);
+
     }
 }
