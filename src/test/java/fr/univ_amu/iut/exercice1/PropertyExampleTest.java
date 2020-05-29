@@ -9,7 +9,7 @@ import java.io.PrintStream;
 import static org.mockito.Mockito.verify;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@Disabled
+//@Disabled
 public class PropertyExampleTest {
 
     @Mock PrintStream out;
@@ -23,7 +23,7 @@ public class PropertyExampleTest {
         propertyExample.setAnInt(1024);
     }
 
-    @Disabled
+  //  @Disabled
     @Test
     public void createProperty() throws Exception {
         propertyExample.createProperty();
@@ -34,7 +34,7 @@ public class PropertyExampleTest {
         verify(out).println("anIntProperty.getValue() = 1024");
     }
 
-    @Disabled
+    //@Disabled
     @Test
     public void addAndRemoveInvalidationListener() throws Exception {
 
@@ -49,8 +49,7 @@ public class PropertyExampleTest {
         verify(out).println("Remove invalidation listener.");
         verify(out).println("set() with 1024.");
     }
-
-    @Disabled
+//    @Disabled
     @Test
     public void addAndRemoveChangeListener() throws Exception {
 
