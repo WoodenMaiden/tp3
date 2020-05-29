@@ -64,7 +64,7 @@ public class TriangleArea {
     }
 
     void printResult() {
-        System.out.println(output);
+        System.out.println(output.get());
     }
 
     private void createBinding() {
@@ -80,7 +80,7 @@ public class TriangleArea {
 
         area = absformule.divide(2.0);
 
-        output = Bindings.format("For P1(" + x1 + "," + y1 + "), P2(" +  x2 + "," + y2 + "), P3(" + x3 + "," + y3 + "), the area of triangle ABC is %d.1f", area);
+        output = Bindings.format("For P1(" + x1.get() + "," + y1.get() + "), P2(" +  x2.get() + "," + y2.get() + "), P3(" + x3.get() + "," + y3.get() + "), the area of triangle ABC is %d.1f", area);
 
     }
 }
